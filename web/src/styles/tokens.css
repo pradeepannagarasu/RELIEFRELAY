@@ -1,0 +1,104 @@
+/*
+ * ReliefRelay design tokens.
+ * Text colours are chosen for at least 4.5:1 contrast on both --rr-surface and --rr-bg.
+ * The brand accent (#2E8B68) is ~4.2:1 on white: use it for fills, icons and borders, and --rr-green-700 for text.
+ */
+:root {
+  /* Brand */
+  --rr-teal-950: #0c2a29;
+  --rr-teal-900: #123b3a;
+  --rr-teal-800: #1a4d4b;
+  --rr-teal-700: #24605d;
+  --rr-teal-100: #d6e5e3;
+  --rr-teal-50: #ebf3f2;
+  --rr-green-600: #2e8b68;
+  --rr-green-700: #226b50;
+  --rr-green-50: #e7f3ed;
+
+  /* Neutrals */
+  --rr-bg: #f6f8f5;
+  --rr-surface: #ffffff;
+  --rr-surface-sunken: #f1f4f1;
+  --rr-border: #dfe5e1;
+  --rr-border-strong: #c3ccc8;
+  --rr-control-border: #7f8c88;
+  --rr-text: #15201f;
+  --rr-text-muted: #56635f;
+  --rr-text-inverse: #ffffff;
+  --rr-text-inverse-muted: #b9cfcc;
+
+  /* Semantic status (foreground passes 4.5:1 on its background) */
+  --rr-success-fg: #1d6648;
+  --rr-success-bg: #e5f2eb;
+  --rr-success-border: #b7dcc8;
+  --rr-warning-fg: #855400;
+  --rr-warning-bg: #fdf2dc;
+  --rr-warning-border: #f0d39a;
+  --rr-critical-fg: #a12a1f;
+  --rr-critical-bg: #fbeae7;
+  --rr-critical-border: #f0c0b8;
+  --rr-info-fg: #1f5785;
+  --rr-info-bg: #e8f0f8;
+  --rr-info-border: #bdd3e8;
+  --rr-progress-fg: #24605d;
+  --rr-progress-bg: #e6f0ef;
+  --rr-progress-border: #bcd6d3;
+  --rr-neutral-fg: #4a5653;
+  --rr-neutral-bg: #eef1ef;
+  --rr-neutral-border: #d3dad6;
+
+  /* Data series for payment outcomes (also labelled in text wherever shown) */
+  --rr-series-delivered: #2e8b68;
+  --rr-series-recovered: #7cc4a4;
+  --rr-series-in-progress: #5b8fb9;
+  --rr-series-requires-action: #d08a1e;
+  --rr-series-closed: #9aa5a1;
+  /* Hatched so unconfirmed records never read as a delivered or closed fill. */
+  --rr-series-unconfirmed: repeating-linear-gradient(135deg, #6f7c78 0 3px, #d3dad6 3px 6px);
+
+  /* Typography */
+  --rr-font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --rr-font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, monospace;
+  --rr-text-xs: 0.75rem;
+  --rr-text-sm: 0.8125rem;
+  --rr-text-base: 0.875rem;
+  --rr-text-md: 1rem;
+  --rr-text-lg: 1.125rem;
+  --rr-text-xl: 1.375rem;
+  --rr-text-2xl: 1.75rem;
+  --rr-leading-tight: 1.25;
+  --rr-leading-normal: 1.5;
+
+  /* Spacing (4px grid) */
+  --rr-space-1: 0.25rem;
+  --rr-space-2: 0.5rem;
+  --rr-space-3: 0.75rem;
+  --rr-space-4: 1rem;
+  --rr-space-5: 1.25rem;
+  --rr-space-6: 1.5rem;
+  --rr-space-8: 2rem;
+  --rr-space-10: 2.5rem;
+  --rr-space-12: 3rem;
+
+  /* Shape and depth */
+  --rr-radius-sm: 4px;
+  --rr-radius-md: 6px;
+  --rr-radius-lg: 8px;
+  --rr-shadow-overlay: 0 12px 32px rgb(12 42 41 / 0.18);
+  --rr-focus-ring: 0 0 0 2px var(--rr-surface), 0 0 0 4px var(--rr-green-600);
+
+  /* Layout */
+  --rr-sidebar-width: 264px;
+  --rr-topbar-height: 60px;
+  --rr-content-max: 1440px;
+
+  --rr-duration-fast: 120ms;
+  --rr-duration-base: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --rr-duration-fast: 0ms;
+    --rr-duration-base: 0ms;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  // Public ReliefRelay Judge Demo only. Synthetic data, in-process PayPal stub; never the private Sandbox app.
+  "name": "reliefrelay-judge-demo",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "alias": {
+    "better-sqlite3": "./src/shims/betterSqlite3.ts",
+    "pino": "./src/shims/pino.ts",
+    "pino-http": "./src/shims/pinoHttp.ts"
+  },
+  "assets": {
+    "directory": "../dist/web",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/*", "!/assets/*"]
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "JUDGE_DEMO", "class_name": "JudgeDemo" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["JudgeDemo"] }],
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": {
+    "OPENAI_MODEL": "",
+    "OPENAI_REASONING_EFFORT": "medium",
+    "AI_TIMEOUT_MS": "45000",
+    "AI_MAX_OUTPUT_TOKENS": "8000",
+    "JUDGE_AI_DAILY_LIMIT": "40"
+  },
+  // Secrets (wrangler secret put): JUDGE_IDENTITY_SECRET, OPENAI_API_KEY, and IMPORT_TOKEN only during the data import.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "reliefrelay.nostologia.com/*", "zone_name": "nostologia.com" }],
+  "observability": { "enabled": true }
+}
